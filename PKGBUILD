@@ -4,8 +4,8 @@
 
 _pkgname=poetry-core
 pkgname=python-poetry-core
-pkgver=1.6.0
-pkgrel=2
+pkgver=1.6.1
+pkgrel=1
 pkgdesc='Poetry PEP 517 Build Backend & Core Utilities'
 arch=('any')
 url="https://github.com/python-poetry/${_pkgname}"
@@ -24,7 +24,7 @@ checkdepends=(git
 conflicts=('python-poetry<1.1.0')
 _archive="$_pkgname-$pkgver"
 source=("$url/archive/$pkgver/$_archive.tar.gz")
-sha256sums=('9e2304113e48e3dc91c206fcd5c3ab9a8ad7c94cee2c86d1b4cd826aef53cbb7')
+sha256sums=('77fafe290509000ff8f9f808cd8ad99da504d2cb830d05323082967274028823')
 
 build() {
 	cd "$_archive"
