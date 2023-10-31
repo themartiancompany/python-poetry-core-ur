@@ -1,0 +1,23 @@
+pkgbase = python-poetry-core
+	pkgdesc = Poetry PEP 517 Build Backend & Core Utilities
+	pkgver = 1.8.0
+	pkgrel = 1
+	url = https://github.com/python-poetry/poetry-core
+	arch = any
+	license = MIT
+	checkdepends = git
+	checkdepends = python-pytest
+	checkdepends = python-pytest-mock
+	checkdepends = python-setuptools
+	checkdepends = python-tomli-w
+	checkdepends = python-virtualenv
+	makedepends = python-build
+	makedepends = python-installer
+	depends = python-jsonschema
+	depends = python-lark-parser
+	depends = python-packaging
+	conflicts = python-poetry<1.1.0
+	source = https://github.com/python-poetry/poetry-core/archive/1.8.0/poetry-core-1.8.0.tar.gz
+	sha256sums = ee7b3327eea61a221d46d290eb6bd5b7f71c5e5015d23b059a4f5c879ae22279
+
+pkgname = python-poetry-core
