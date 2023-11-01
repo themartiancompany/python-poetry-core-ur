@@ -5,12 +5,12 @@
 _pkgname=poetry-core
 pkgname=python-poetry-core
 pkgver=1.8.1
-pkgrel=1
+pkgrel=2
 pkgdesc='Poetry PEP 517 Build Backend & Core Utilities'
 arch=('any')
 url="https://github.com/python-poetry/${_pkgname}"
 license=('MIT')
-_pydeps=(jsonschema
+_pydeps=(fastjsonschema
          lark-parser
          packaging)
 depends=("${_pydeps[@]/#/python-}")
