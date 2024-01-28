@@ -17,41 +17,59 @@ license=('MIT')
 _pydeps=(fastjsonschema
          lark-parser
          packaging)
-depends=("${_pydeps[@]/#/python-}")
-makedepends=(python-{build,installer})
-checkdepends=(git
-              python-pytest
-              python-pytest-mock
-              python-setuptools
-              python-tomli-w
-              python-virtualenv)
-conflicts=('python-poetry<1.1.0')
+depends=(
+  "${_pydeps[@]/#/python-}"
+)
+makedepends=(
+ "python-"{build,installer}
+)
+checkdepends=(
+  git
+  python-pytest
+  python-pytest-mock
+  python-setuptools
+  python-tomli-w
+  python-virtualenv
+)
+conflicts=(
+  'python-poetry<1.1.0'
+)
 _archive="$_pkgname-$pkgver"
-source=("$url/archive/$pkgver/$_archive.tar.gz")
-sha256sums=('0e73e3a57a1d5205a2f0c527ea598401a94ca46047d1534008ecb911ce790ead')
+source=(
+  "$url/archive/$pkgver/$_archive.tar.gz"
+)
+sha256sums=(
+  '0e73e3a57a1d5205a2f0c527ea598401a94ca46047d1534008ecb911ce790ead'
+)
 
 build() {
-	cd "$_archive"
-	python -m build -wn
+  cd "$_archive"
+  python -m build -wn
 }
 
 check() {
-	cd "$_archive"
-	export PYTHONPATH="$PWD/src"
-	# only works inside git repositories
-	pytest \
-		-k 'not test_default_with_excluded_data and not test_default_src_with_excluded_data'
+  cd \
+    "$_archive"
+  export \
+    PYTHONPATH="$PWD/src"
+  # only works inside git repositories
+  pytest \
+    -k \
+      'not test_default_with_excluded_data and not test_default_src_with_excluded_data'
 }
 
 package() {
-	cd "$_archive"
-	python \
-	  -m \
-	    installer \
-	  --destdir \
-	    "$pkgdir" \
-	  dist/*.whl
-	install -Dm0644 -t "$pkgdir/usr/share/licenses/$pkgname/" LICENSE
+  cd \
+    "$_archive"
+  python \
+    -m \
+      installer \
+    --destdir="${pkgdir}" \
+    dist/*.whl
+  install \
+    -Dm0644 \
+    -t "$pkgdir/usr/share/licenses/$pkgname/" \
+    LICENSE
 }
 
 # vim:set sw=2 sts=-1 et:
