@@ -1,6 +1,10 @@
+# SPDX-License-Identifier: AGPL-3.0
+#
 # Maintainer: Caleb Maclennan <caleb@alerque.com>
 # Contributor: Eli Schwartz <eschwartz@archlinux.org>
 # Contributor: George Rawlinson <george@rawlinson.net.nz>
+# Maintainer: Truocolo <truocolo@aol.com>
+# Maintainer: Pellegrino Prevete (tallero) <pellegrinoprevete@gmail.com>
 
 _pkgname=poetry-core
 pkgname=python-poetry-core
@@ -41,6 +45,13 @@ check() {
 
 package() {
 	cd "$_archive"
-	python -m installer -d "$pkgdir" dist/*.whl
+	python \
+	  -m \
+	    installer \
+	  --destdir \
+	    "$pkgdir" \
+	  dist/*.whl
 	install -Dm0644 -t "$pkgdir/usr/share/licenses/$pkgname/" LICENSE
 }
+
+# vim:set sw=2 sts=-1 et:
