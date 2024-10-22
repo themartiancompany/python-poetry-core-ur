@@ -13,6 +13,7 @@ pkgbase = python-poetry-core
 	checkdepends = python-virtualenv
 	makedepends = python-build
 	makedepends = python-installer
+	depends = python>=3.12
 	depends = python-fastjsonschema
 	depends = python-lark-parser
 	depends = python-packaging
